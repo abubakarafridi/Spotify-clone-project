@@ -18,7 +18,7 @@ function secondsToMinutesSeconds(seconds) {
 
 async function getSongs(folder) {
   currentFolder = folder;
-  let a = await fetch(`/${folder}/`);
+  let a = await fetch(`http://127.0.0.1:5500/${folder}/`);
   let response = await a.text();
   let div = document.createElement('div');
   div.innerHTML = response;
@@ -73,7 +73,7 @@ let playMusic = (track, pause = false) => {
 };
 
 async function displayAlbums() {
-  let a = await fetch(`/songs/`);
+  let a = await fetch(`http://127.0.0.1:5500/songs/${folder}/info.json`);
   let response = await a.text();
   let div = document.createElement('div');
   div.innerHTML = response;
@@ -108,7 +108,7 @@ async function displayAlbums() {
 }
 
 async function main() {
-  await getSongs('songs/ncs');
+  await getSongs('https://github.com/abubakarafridi/Spotify-clone-project/tree/main/songs/ncs');
   playMusic(songs[0], true);
 
   displayAlbums();
