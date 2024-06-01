@@ -101,14 +101,14 @@ async function displayAlbums() {
 
   Array.from(document.getElementsByClassName('card')).forEach((e) => {
     e.addEventListener('click', async (item) => {
-      songs = await getSongs(`songs/${item.currentTarget.dataset.folder}`);
+      songs = await getSongs(`https://github.com/abubakarafridi/Spotify-clone-project/tree/main/songs/${item.currentTarget.dataset.folder}`);
       playMusic(songs[0]);
     });
   });
 }
 
 async function main() {
-  await getSongs('songs/ncs');
+  await getSongs('https://github.com/abubakarafridi/Spotify-clone-project/tree/main/songs/ncs');
   playMusic(songs[0], true);
 
   displayAlbums();
